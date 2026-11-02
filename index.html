@@ -55,6 +55,12 @@
     color: var(--muted);
     font-size: 0.95rem;
   }
+  section ul {
+    margin: 0 0 12px;
+    padding-left: 22px;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
   section p:last-child {
     margin-bottom: 0;
   }
@@ -72,21 +78,32 @@
   <h1>Privacy Policy</h1>
 </header>
 <main>
-  <p class="updated">Last updated: August 26, 2026</p>
+  <p class="updated">Last updated: November 2026</p>
 
   <section>
     <h2>Information We Collect</h2>
-    <p>Account information: when you create an account, we store your email address via Supabase Authentication.</p>
+    <p>Account information: when you create an account, we store your email address.</p>
     <p>Content you create: pantry items, shopping lists, meal plans, food ratings, dietary preferences, custom recipes, and your supplement list (name, dose, and timing of anything you choose to track) are stored under your account so they sync across your devices.</p>
     <p>Nutrition and food logs: meals you log manually, by scanning a packaged food's barcode, by searching a food database, or by photographing a meal are stored under your account, including the calories and macros associated with each entry.</p>
-    <p>Camera access: used to scan barcodes (pantry items, food logging, supplements) on-device, and to photograph a meal for AI-estimated macros. Barcode scans never leave your device as an image. A meal photo is sent to our AI provider (see Third-Party Services) for analysis and is not stored by us afterward.</p>
+    <p>Backup: your cutting phase plan, body profile (age, height, sex, activity level and goal), your estimated maintenance calories and your pantry are saved to your account, so they survive signing out, reinstalling the app or changing phones.</p>
+    <p>Caliper readings: skinfold caliper measurements you enter are stored under your account like your other body measurements.</p>
+    <p>Workouts: if you connect Apple Health, your workouts (type, start time, length and calories) are read and saved to your account, so your weekly review and diary can look back further than Apple keeps them. Only you can see them. You can delete them any time in Notifications, under Apple Health sync, and they are removed when you delete your account. Turning sync off does not delete them.</p>
+    <p>Diary: notes, energy scores and habits you write in your diary are stored under your account, and only you can see them.</p>
+    <p>Camera access: used to scan barcodes on your device, and, if you choose, to photograph a meal or your pantry so AI can estimate what is in it. Barcode scans never leave your device as an image. A meal or pantry photo is sent to our AI provider for analysis and is not stored by us afterward.</p>
     <p>Microphone access: if you use hands-free voice commands in Cooking Mode, spoken commands are converted to text using your device's built-in speech recognition system. Depending on your device and settings, this may send a short audio clip over the network to Apple's or Google's speech recognition service to be transcribed - the same standard behavior as Siri or Google Assistant dictation elsewhere on your phone. We do not ourselves record, retain, or have access to this audio; it is used only to produce the text of your spoken command.</p>
   </section>
 
   <section>
     <h2>Health &amp; Fitness Data</h2>
     <p>Body weight, body fat percentage, and body measurements (waist, chest, hips, arm, thigh, neck) that you enter manually, or that sync from a paired Bluetooth scale, are stored under your account and used to show your weigh-in history and trends, and to power features like adaptive calorie targets during a cutting phase and safe-rate-of-loss guidance.</p>
-    <p>Apple Health / Google Health Connect (optional, off by default): if you explicitly turn this on, we read your weight and body fat data (and, on iOS, waist circumference where available) from Apple Health or Google Health Connect so scales that sync there - even ones we don't otherwise support - work automatically. This is read-only: the app never writes anything back to Apple Health or Health Connect, and nothing is read from either until you turn the feature on in Settings. You can disconnect it at any time, which stops all further reading immediately.</p>
+    <p>Apple Health / Google Health Connect (optional, off by default): if you turn this on, the app reads from Apple Health or Health Connect:</p>
+    <ul>
+      <li>body weight and body fat percentage, which are saved to your account like a weight you type in;</li>
+      <li>heart rate variability (HRV) and sleep, which the app reads from your phone to show a recovery note. These are not saved to your account or sent to our servers;</li>
+      <li>daily steps and active calories, which are read from your phone to show next to your week in Review. They are not stored;</li>
+      <li>workouts (iOS only for now), which are saved to your account, as described under Workouts above, so your look-back keeps them.</li>
+    </ul>
+    <p>This is read-only: the app never writes anything to Apple Health or Health Connect. Nothing is read until you turn the feature on in Settings, and turning it off stops all further reading.</p>
     <p>Progress photos (optional): photos you choose to add are stored in a private location that only your account can access. They are never public, and are only ever viewed through short-lived, per-request links - not a permanent public URL.</p>
     <p>All of the above is used only to show it back to you (history, trends, and the features listed above) and is never sold or shared with advertisers.</p>
   </section>
@@ -94,7 +111,7 @@
   <section>
     <h2>Household &amp; Group Sharing</h2>
     <p>Households (optional): you can create or join a household using an invite code to share a shopping list and meal plan with family members. Anyone in the household can see and edit the shared list/plan, along with the display name you've set for yourself in that household. Leaving a household immediately stops your access to its shared data, and it stops appearing to other members.</p>
-    <p>Groups (optional): you can create or join a private group (e.g. a gym or running club) and invite people to it by email. Inviting someone checks whether that email address already has an account: if it does, they receive an in-app invite; if it doesn't, we send an invitation email to that address on your behalf (with links to download the app), and automatically connect the pending invite to their account if and when they sign up using that same email address. Once someone joins a group, other members can see their display name and role, and any recipes, shopping list items, or meal plan entries they choose to share into that group.</p>
+    <p>Groups (optional): you can create or join a private group (e.g. a gym or running club) and invite people to it by email. If the person already has an account, they get an invite and a notification in the app. If they do not, we send them one email, through our email delivery provider, with the group name and links to download the app. We only email addresses you invited. Once someone joins a group, other members can see their display name and role, and any recipes, shopping list items, or meal plan entries they choose to share into that group.</p>
     <p>Group workout activity (optional, off by default, per group): you can separately choose to share a read-only weekly workout count (e.g. "2 workouts this week") with one specific group. This is an aggregate count only - your actual weight, body fat, workout plan contents, or any other health data described above is never shared with a group, regardless of this setting. You can turn this off for any group at any time, which removes your activity from that group's view immediately.</p>
   </section>
 
@@ -105,19 +122,25 @@
 
   <section>
     <h2>Third-Party Services</h2>
-    <p>Recipe search uses external recipe databases (Spoonacular, Edamam, TheMealDB, Tasty, YMove) and image services (Pexels) - search terms and ingredient names may be sent to these providers to return results. Nutrition lookups may use the FatSecret API, USDA FoodData Central, or Open Food Facts (barcode product lookups). The Workout Plan feature also uses the YMove API to source exercises, including short instructional videos. Your account credentials are never shared with these services.</p>
-    <p>Subscriptions: if you purchase Premium, RevenueCat processes and manages your subscription status (which features you've unlocked), tied to your account. The App Store or Play Store handles your actual payment details (card number, etc.) directly - we never see or store that information ourselves.</p>
-    <p>AI meal photo analysis: if you photograph a meal to log it, that photo is sent to Anthropic's Claude API to estimate the food items and macros shown, and is not stored by us or, to our knowledge, retained by Anthropic beyond processing the request.</p>
-    <p>Apple Health / Google Health Connect: see Health &amp; Fitness Data above - this integration is opt-in and read-only.</p>
-    <p>Sign in with Apple / Google: if you use these options, the respective provider authenticates you and shares your email address with us; we never see or store your Apple or Google password.</p>
-    <p>Crash reports: if enabled, technical crash/error data (not your personal content) may be sent to Sentry to help us fix bugs.</p>
-    <p>Product analytics: if enabled, we send app usage data (which screens and features you use) to PostHog, associated with your account's user ID and email so we can, for example, respond to a support request about your account. This does not include your pantry contents, recipes, health data, or other personal content you create.</p>
-    <p>Transactional email: password reset links, account confirmation links, and group invitation emails (see Household &amp; Group Sharing above) are sent through Resend, our email delivery provider. This means the relevant email address - yours, for a password reset or confirmation, or an invited person's, for a group invite - is shared with Resend solely to deliver that email. Resend is not used for marketing and does not receive any other account data.</p>
+    <p>We use service providers to run the app. They receive only what they need to do their job, and we do not sell your data.</p>
+    <p>Recipe, exercise, image and nutrition data providers: search terms, ingredient names, exercise names and barcodes may be sent to return results. Your account details are not sent.</p>
+    <p>Our food search server: food searches and barcode lookups go through a server we run with a hosting provider.</p>
+    <p>AI provider (Sonnet AI): if you log a meal by photo or description, or scan your pantry by photo, and you allow it, that photo or text is sent to Sonnet AI to estimate calories, macros or pantry items. The app asks your permission first, and you can change your choice in Settings. We do not store the photo.</p>
+    <p>Database and sign-in hosting: your account and app data are stored with a managed database provider.</p>
+    <p>Notifications: if you allow notifications, we store a push token for each phone you use, linked to your account. Alert text passes through a push delivery service and then Apple or Google to your phone. We keep a list of these notifications under your account so you can read them in the app. You can turn group and household notifications off in settings. Reminders you set yourself are scheduled on your phone and do not use this.</p>
+    <p>Email: password reset and confirmation emails, and group invites to people without an account, go through an email delivery provider. It receives the address it is delivering to, and nothing else from your account.</p>
+    <p>Subscriptions: purchases are handled by Apple or Google, and a subscription management provider records your subscription status against your account. We never see your card details.</p>
+    <p>Crash reports: if enabled, technical crash and error data, not your personal content, is sent to a crash reporting provider so we can fix bugs.</p>
+    <p>Usage analytics: if enabled, app usage data (which screens and features you use) is sent to an analytics provider, tied to your account's user ID and email, so we can improve the app and help with support requests. This does not include your pantry, recipes, health data or other content you create.</p>
+    <p>Sign in with Apple or Google: the provider confirms who you are and shares your email with us. We never see your password.</p>
+    <p>Apple Health and Google Health Connect: see Health &amp; Fitness Data above. Opt-in and read-only.</p>
+    <p>Kroger (optional): if you connect a Kroger account, you sign in on Kroger's own page, and we never see your Kroger password. We store the access and refresh tokens Kroger gives us, linked to your account, so we can add items you pick to your Kroger cart. The app itself cannot read these tokens; only our server can. When you add items or look up prices, we send Kroger the item names and your zip code. You can disconnect in the app, which deletes the stored tokens. Kroger handles that data under its own privacy policy.</p>
+    <p>Walmart (optional): when you ask for a Walmart cart link, we send the item names to Walmart's product search and build a link for you to open. We do not store the result or any Walmart account information.</p>
   </section>
 
   <section>
     <h2>Data Storage &amp; Security</h2>
-    <p>Your data is stored in a Supabase (PostgreSQL) database with row-level security, meaning your account can only access your own data. Data in transit is encrypted (HTTPS/TLS). Progress photos are stored in a private file bucket with the same per-account access restriction, never a public URL.</p>
+    <p>Your data is stored in a managed database with row-level security, meaning your account can only access your own data. Data in transit is encrypted (HTTPS/TLS). Progress photos are stored in a private file bucket with the same per-account access restriction, never a public URL.</p>
   </section>
 
   <section>
